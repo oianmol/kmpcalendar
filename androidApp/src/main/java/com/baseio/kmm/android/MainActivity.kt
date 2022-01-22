@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.baseio.kmm.android.ui.theme.PraxisSurface
 import com.baseio.kmm.android.ui.theme.PraxisTheme
 
 class TrendingReposUI : ComponentActivity() {
@@ -24,7 +25,7 @@ class TrendingReposUI : ComponentActivity() {
     WindowCompat.setDecorFitsSystemWindows(window, false)
     setContent {
       PraxisTheme() {
-        Surface(
+        PraxisSurface(
           modifier = Modifier
             .fillMaxSize()
         ) {

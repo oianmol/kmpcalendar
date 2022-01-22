@@ -1,12 +1,10 @@
 package com.baseio.kmm.android
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,7 +22,7 @@ fun YearView() {
   LazyColumn {
     items(jetYear.yearMonths) { jetMonth ->
       Text(jetMonth.startDate.month.name, style = TextStyle(color = Color.Red))
-      Row() {
+      Row(modifier = Modifier.fillMaxWidth()) {
         dayNames(DayOfWeek.SUNDAY).forEach { name ->
           Box(modifier = Modifier.size(40.dp)) {
             Text(name)
@@ -34,12 +32,12 @@ fun YearView() {
 
       Column() {
         jetMonth.monthWeeks.forEach{ week ->
-          LazyRow() {
+          LazyRow(modifier = Modifier.fillMaxWidth()) {
             items(week.days) { day ->
               Box(modifier = Modifier.size(40.dp)) {
                 Text(
                   text = day.date.dayOfMonth.toString(),
-                  style = TextStyle(color = if (day.isPartOfMonth) Color.Black else Color.Gray)
+                  style = TextStyle(color = if (day.isPartOfMonth) MaterialTheme.typography.body1.color else Color.Transparent)
                 )
               }
             }
