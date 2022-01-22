@@ -41,7 +41,7 @@ class JetMonth private constructor(
     while (true) {
       val firstDateOfWeek = date.dateOfCurrentWeek(firstDayOfWeek, monthWeeks.size == 0)
       date = firstDateOfWeek.plus(DatePeriod(days = 6))
-      if (date.monthNumber != (if (monthWeeks.size == 0) date.monthNumber else firstDateOfWeek.monthNumber)) {
+      if (endDate.monthNumber != date.monthNumber) {
         monthWeeks.add(
           JetWeek.current(
             firstDateOfWeek,
@@ -70,7 +70,13 @@ fun JetMonth.nextMonth(): JetMonth {
 
 private fun LocalDate.lastDayOfMonth(): LocalDate {
   // first day of next month minus 1 day is last day of month :P
-  return LocalDate(this.year, this.month.number + 1, 1).minus(DatePeriod(days = 1))
+  val currentMonth = this.month.number
+  return if (currentMonth == 12) {
+    LocalDate(this.year.plus(1), 1, 1).minus(DatePeriod(days = 1))
+  } else {
+    LocalDate(this.year, this.month.number + 1, 1).minus(DatePeriod(days = 1))
+  }
+
 }
 
 private fun LocalDate.firstDayOfMonth(): LocalDate {

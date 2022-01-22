@@ -13,8 +13,8 @@ class JetYear private constructor(
       date: LocalDate,
       firstDayOfWeek: DayOfWeek
     ): JetYear {
-      val day = LocalDate(date.year, 1, 1)
-      val last = LocalDate(date.year, 12, 31)
+      val day = LocalDate(date.year, Month.JANUARY, 1)
+      val last = LocalDate(date.year, Month.DECEMBER, 31)
       val year = JetYear(day, last)
       year.yearMonths = year.months(firstDayOfWeek)
       return year
@@ -23,21 +23,10 @@ class JetYear private constructor(
 
   private fun months(firstDayOfWeek: DayOfWeek): List<JetMonth> {
     val months = mutableListOf<JetMonth>()
-
-    var startDateMonth = this.startDate.withDayOfMonth(1)
-
-    var endDateMonth = startDateMonth.startDateNextMonth().minus(DatePeriod(days = 1))
-
-    var currentYear = this.startDate.year
-    while (true) {
-      months.add(JetMonth.current(startDateMonth, firstDayOfWeek))
-
-      startDateMonth = endDateMonth.plus(DatePeriod(days = 1))
-      endDateMonth = startDateMonth.startDateNextMonth().minus(DatePeriod(days = 1))
-      if (endDateMonth.year > currentYear) {
-        break
-      }
-      currentYear = endDateMonth.year
+    months.add(JetMonth.current(this.startDate, firstDayOfWeek))
+    while (months.size != 12) {
+      val nextMonth = months.last().nextMonth()
+      months.add(nextMonth)
     }
     return months
   }
