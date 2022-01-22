@@ -16,10 +16,19 @@ struct CalendarView: View {
         
         VStack {
             Text("\(jetMonth.startDate.dayOfMonth) \(jetMonth.startDate.month.name)")
+            HStack {
+                ForEach(JetWeekKt.dayNames(dayOfWeek: Kotlinx_datetimeDayOfWeek.sunday),id: \.self){ name in
+                    VStack{
+                        Text(name)
+                    }.frame(width: 40, height: 40, alignment: Alignment.center).foregroundColor(Color.red)
+                }
+            }
             ForEach(jetMonth.monthWeeks,id: \.self) { week in
                 HStack {
                     ForEach(week.days,id: \.self){ JetDay in
-                        Text(String(JetDay.date.dayOfMonth))
+                        VStack{
+                            Text(String(JetDay.date.dayOfMonth))
+                        }.frame(width: 40, height: 40, alignment: Alignment.center)
                     }
                 }
             }
