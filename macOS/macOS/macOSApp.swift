@@ -8,9 +8,6 @@
 import SwiftUI
 import shared
 
-let sharedComponent = SharedComponent()
-let useCasesComponent = UseCasesComponent()
-
 @main
 struct macOSApp: App {
     init() {
@@ -19,7 +16,7 @@ struct macOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            GithubTrendingScreen()
+            Text("")
         }
     }
 }

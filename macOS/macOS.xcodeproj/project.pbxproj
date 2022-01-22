@@ -13,9 +13,6 @@
 		89D84231277A218600D08BC0 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D84230277A218600D08BC0 /* macOSTests.swift */; };
 		89D8423B277A218600D08BC0 /* macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8423A277A218600D08BC0 /* macOSUITests.swift */; };
 		89D8423D277A218600D08BC0 /* macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8423C277A218600D08BC0 /* macOSUITestsLaunchTests.swift */; };
-		89D84251277A25D100D08BC0 /* GithubTrendingUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8424E277A25D100D08BC0 /* GithubTrendingUI.swift */; };
-		89D84252277A25D100D08BC0 /* UiRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D8424F277A25D100D08BC0 /* UiRepo.swift */; };
-		89D84253277A25D100D08BC0 /* GithubTrendingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D84250277A25D100D08BC0 /* GithubTrendingVM.swift */; };
 		D517D08F8A4365D67D27DE7F /* libPods-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EA38324EF8E940C0D06D4CE /* libPods-macOS.a */; };
 /* End PBXBuildFile section */
 
@@ -50,9 +47,6 @@
 		89D84236277A218600D08BC0 /* macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = macOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D8423A277A218600D08BC0 /* macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSUITests.swift; sourceTree = "<group>"; };
 		89D8423C277A218600D08BC0 /* macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		89D8424E277A25D100D08BC0 /* GithubTrendingUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubTrendingUI.swift; sourceTree = "<group>"; };
-		89D8424F277A25D100D08BC0 /* UiRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiRepo.swift; sourceTree = "<group>"; };
-		89D84250277A25D100D08BC0 /* GithubTrendingVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubTrendingVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +109,6 @@
 		89D8421D277A218500D08BC0 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				89D8424D277A25D100D08BC0 /* githubtrending */,
 				89D8421E277A218500D08BC0 /* macOSApp.swift */,
 				89D84222277A218600D08BC0 /* Assets.xcassets */,
 				89D84227277A218600D08BC0 /* macOS.entitlements */,
@@ -147,16 +140,6 @@
 				89D8423C277A218600D08BC0 /* macOSUITestsLaunchTests.swift */,
 			);
 			path = macOSUITests;
-			sourceTree = "<group>";
-		};
-		89D8424D277A25D100D08BC0 /* githubtrending */ = {
-			isa = PBXGroup;
-			children = (
-				89D8424E277A25D100D08BC0 /* GithubTrendingUI.swift */,
-				89D8424F277A25D100D08BC0 /* UiRepo.swift */,
-				89D84250277A25D100D08BC0 /* GithubTrendingVM.swift */,
-			);
-			path = githubtrending;
 			sourceTree = "<group>";
 		};
 		8A313E3128877F794EC8E09F /* Frameworks */ = {
@@ -323,10 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89D84253277A25D100D08BC0 /* GithubTrendingVM.swift in Sources */,
-				89D84251277A25D100D08BC0 /* GithubTrendingUI.swift in Sources */,
 				89D8421F277A218500D08BC0 /* macOSApp.swift in Sources */,
-				89D84252277A25D100D08BC0 /* UiRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-# PraxisKMM
+# KMPCalendarView
 
 Minimal **Kotlin Multiplatform** project with SwiftUI, Jetpack Compose, Compose for Wear OS,. Currently running on
 
