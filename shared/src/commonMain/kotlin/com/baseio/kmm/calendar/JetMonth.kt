@@ -43,15 +43,22 @@ class JetMonth private constructor(
       println("start "+firstDateOfWeek)
       date = firstDateOfWeek.plus(DatePeriod(days = 6))
       println("end "+date)
-      monthWeeks.add(
-        JetWeek.current(
-          firstDateOfWeek,
-          dayOfWeek = this.firstDayOfWeek
-        )
-      )
       if (date.monthNumber != (if (monthWeeks.size == 0) date.monthNumber else firstDateOfWeek.monthNumber)) {
         println("break")
+        monthWeeks.add(
+          JetWeek.current(
+            firstDateOfWeek,
+            dayOfWeek = this.firstDayOfWeek
+          )
+        )
         break
+      } else {
+        monthWeeks.add(
+          JetWeek.current(
+            firstDateOfWeek,
+            dayOfWeek = this.firstDayOfWeek
+          )
+        )
       }
       date = date.plus(DatePeriod(days = 1))
     }
