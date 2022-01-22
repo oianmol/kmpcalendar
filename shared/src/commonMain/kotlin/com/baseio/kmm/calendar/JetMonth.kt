@@ -45,7 +45,8 @@ class JetMonth private constructor(
         monthWeeks.add(
           JetWeek.current(
             firstDateOfWeek,
-            dayOfWeek = this.firstDayOfWeek
+            dayOfWeek = this.firstDayOfWeek,
+            this.startDate.monthNumber
           )
         )
         break
@@ -53,7 +54,8 @@ class JetMonth private constructor(
         monthWeeks.add(
           JetWeek.current(
             firstDateOfWeek,
-            dayOfWeek = this.firstDayOfWeek
+            dayOfWeek = this.firstDayOfWeek,
+            this.startDate.monthNumber
           )
         )
       }

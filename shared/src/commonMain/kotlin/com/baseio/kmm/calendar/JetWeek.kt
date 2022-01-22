@@ -31,20 +31,18 @@ private fun DayOfWeek.next(): DayOfWeek {
 
 class JetWeek private constructor(
   val startDate: LocalDate,
-  val endDate: LocalDate,
-  val monthOfWeek: Int,
-  val dayOfWeek: DayOfWeek,
+  val monthNumber: Int,
 ) : JetCalendarType() {
   lateinit var days: List<JetDay>
 
   companion object {
     fun current(
       date: LocalDate,
-      dayOfWeek: DayOfWeek
+      dayOfWeek: DayOfWeek,
+      monthNumber: Int
     ): JetWeek {
       val startOfCurrentWeek: LocalDate = date.dateOfCurrentWeek(dayOfWeek, true)
-      val endOfWeek: LocalDate = date.dateOfCurrentWeek(dayOfWeek, true)
-      val week = JetWeek(startOfCurrentWeek, endOfWeek, date.monthNumber, dayOfWeek)
+      val week = JetWeek(startOfCurrentWeek, monthNumber)
       week.days = week.dates()
       return week
     }
@@ -52,7 +50,7 @@ class JetWeek private constructor(
 
   fun dates(): List<JetDay> {
     val days = mutableListOf<JetDay>()
-    val isPart = startDate.monthNumber == this.monthOfWeek
+    val isPart = startDate.monthNumber == this.monthNumber
     days.add(startDate.toJetDay(isPart))
     while (days.size != 7) {
       days.add(days.last().nextDay(this))
@@ -85,14 +83,7 @@ fun LocalDate.toJetDay(isPart: Boolean): JetDay {
 
 private fun JetDay.nextDay(jetWeek: JetWeek): JetDay {
   val date = this.date.plus(DatePeriod(days = 1))
-  val isPartOfMonth = this.date.plus(DatePeriod(days = 1)).monthNumber == jetWeek.monthOfWeek
+  val isPartOfMonth = date.monthNumber == jetWeek.monthNumber
   return JetDay(date, isPartOfMonth)
-}
-
-fun JetWeek.nextWeek(): JetWeek {
-  val firstDay = this.endDate.plus(DatePeriod(days = 1))
-  val week = JetWeek.current(firstDay, dayOfWeek = dayOfWeek)
-  week.days = week.dates()
-  return week
 }
 
