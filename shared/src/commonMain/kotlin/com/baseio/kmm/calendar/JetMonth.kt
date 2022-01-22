@@ -40,11 +40,8 @@ class JetMonth private constructor(
 
     while (true) {
       val firstDateOfWeek = date.dateOfCurrentWeek(firstDayOfWeek, monthWeeks.size == 0)
-      println("start "+firstDateOfWeek)
       date = firstDateOfWeek.plus(DatePeriod(days = 6))
-      println("end "+date)
       if (date.monthNumber != (if (monthWeeks.size == 0) date.monthNumber else firstDateOfWeek.monthNumber)) {
-        println("break")
         monthWeeks.add(
           JetWeek.current(
             firstDateOfWeek,
