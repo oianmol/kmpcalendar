@@ -22,6 +22,7 @@ object AndroidDependencies {
         "androidx.constraintlayout:constraintlayout:${AndroidDependencyVersions.constraintLayout}",
         "androidx.compose.ui:ui:${AndroidDependencyVersions.compose}",
         "io.coil-kt:coil-compose:${AndroidDependencyVersions.coil}",
+        "org.jetbrains.kotlinx:kotlinx-datetime:${CommonDependencyVersions.kotlinxDateTime}",
         "androidx.compose.material:material:${AndroidDependencyVersions.compose}",
         "androidx.compose.ui:ui-tooling-preview:${AndroidDependencyVersions.compose}",
         "androidx.lifecycle:lifecycle-runtime-ktx:${AndroidDependencyVersions.lifecycleRuntime}",
